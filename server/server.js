@@ -4,6 +4,7 @@ import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import { config } from './config.js'
 import healthRouter from './routes/health.js'
+import scanRouter from './routes/scan.js'
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js'
 
 const app = express()
@@ -49,6 +50,7 @@ app.use(
 
 // Routes
 app.use('/api/health', healthRouter)
+app.use('/api/scan', scanRouter)
 
 // Fallbacks
 app.use(notFoundHandler)
