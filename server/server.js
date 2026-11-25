@@ -5,6 +5,7 @@ import rateLimit from 'express-rate-limit'
 import { config } from './config.js'
 import healthRouter from './routes/health.js'
 import scanRouter from './routes/scan.js'
+import landingRouter from './routes/landing.js'
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js'
 
 const app = express()
@@ -51,6 +52,7 @@ app.use(
 // Routes
 app.use('/api/health', healthRouter)
 app.use('/api/scan', scanRouter)
+app.use('/api/landing', landingRouter)
 
 // Fallbacks
 app.use(notFoundHandler)
